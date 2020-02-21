@@ -1,0 +1,18 @@
+.checkuser {
+
+    height: 34px;
+    width: 70%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #000;
+    background-color: #cbcacc;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+
+  .highlight {
+  background-color: yellow;
+}

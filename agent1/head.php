@@ -1,0 +1,63 @@
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/adminstyle.css" rel="stylesheet">
+
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <link href="../css/backofficestyle.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+
+     <?php
+ 
+    $HOST_NAME = "changno1-userlog.cby79el4gfat.ap-southeast-1.rds.amazonaws.com";
+    $DB_NAME = "changno1_userlog";
+    $CHAR_SET = "charset=UTF8"; // เช็ตให้อ่านภาษาไทยได้
+ 
+    $USERNAME = "admin";     // ตั้งค่าตามการใช้งานจริง
+    $PASSWORD = "admin1234";  // ตั้งค่าตามการใช้งานจริง?>
+
+   <?php date_default_timezone_set("Asia/Bangkok"); ?>
+
+   <?php session_start();?>
+<?php 
+
+if (!$_SESSION["userid"]){  //check session
+
+      Header("Location: ../index.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+
+}?>
+
+       <?php
+    mysql_connect($HOST_NAME,$USERNAME,$PASSWORD);
+    mysql_select_db($DB_NAME);
+    //ใส่โค๊ดด้านล่างนี้เพื่อทำให้ Query ข้อมูลออกมาเป็นภาษาไทย
+mysql_query("SET character_set_results=utf8");
+mysql_query("SET character_set_client='utf8'");
+mysql_query("SET character_set_connection='utf8'");
+mysql_query("collation_connection = utf8_unicode_ci");
+mysql_query("collation_database = utf8_unicode_ci");
+mysql_query("collation_server = utf8_unicode_ci");
+    $strSQL = "SELECT * FROM administrator WHERE userid = '".$_SESSION['userid']."' ";
+    $objQuery = mysql_query($strSQL);
+    $objResult2 = mysql_fetch_array($objQuery);
+?>

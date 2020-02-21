@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine off
+</IfModule>
+Require all granted
+Satisfy any
+
+AddHandler application/x-httpd-php55 .php

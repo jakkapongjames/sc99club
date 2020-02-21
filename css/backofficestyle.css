@@ -1,0 +1,19 @@
+.fixbt {
+  position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 999;
+}
+
+.fixmargin {
+margin-bottom: 100px;
+}
+
+.box2 {
+display: inline-block;
+    margin: 0.5em;
+}
+
+.f-r {
+float: right;
+}
